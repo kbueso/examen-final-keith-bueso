@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {DetalleFactura} from './detalle-factura.model';
 
 @model({settings: {strict: false}})
 export class Factura extends Entity {
@@ -27,6 +28,8 @@ export class Factura extends Entity {
   })
   fecha: string;
 
+  @belongsTo(() => DetalleFactura)
+  detalleFacturaId: string;
   // Define well-known properties here
 
   // Indexer property to allow additional data
